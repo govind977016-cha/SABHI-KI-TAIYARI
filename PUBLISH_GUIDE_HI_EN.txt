@@ -1,0 +1,33 @@
+# Sabhi Ki Taiyari — Website publish guide
+
+## Included files
+- `index.html` — your MCQ practice website (search-friendly metadata added)
+- `robots.txt` — allows search-engine crawlers
+
+## Publish free with GitHub Pages
+1. Sign in to https://github.com/ or create a GitHub account.
+2. Create a **Public** repository named `sabhi-ki-taiyari`.
+3. Upload `index.html` and `robots.txt` to the top level of the repository.
+4. Open **Settings → Pages**.
+5. Under **Build and deployment**, choose **Deploy from a branch**.
+6. Select branch **main** and folder **/(root)**, then Save.
+7. GitHub will show your public website URL, usually:
+   `https://YOUR-USERNAME.github.io/sabhi-ki-taiyari/`
+
+## Submit to Google
+1. Open https://search.google.com/search-console/
+2. Add the website URL as a URL-prefix property.
+3. Verify ownership using one of the verification methods offered by Search Console.
+4. Use **URL Inspection** to inspect your homepage URL and click **Request indexing**.
+5. Check indexing progress in Search Console.
+
+Google indexing is not instant or guaranteed. It can take days or weeks.
+
+## Important note about saved questions
+The current app stores questions and best scores in the visitor's browser (`localStorage`).
+That means questions added by one visitor are not automatically shared with other visitors or synced between devices. A shared question bank/login system would need a database and backend.
+
+## Before sharing publicly
+- Test the website on a mobile phone and desktop.
+- Do not upload private or copyrighted question papers unless you have permission.
+- Keep a backup of your question bank.

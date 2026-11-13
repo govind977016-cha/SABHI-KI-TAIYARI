@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta name="google-site-verification" content="k6Q1Y4aOkJunyqtZgNuUdPwaDx1USS_8AJG3lrJlbb8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabhi Ki Taiyari | Online MCQ Test & Exam Preparation</title>
+<meta name="description" content="Sabhi Ki Taiyari पर CHO, SSC Nursing Officer और General Knowledge की MCQ प्रैक्टिस करें। Topic, Subject और Chapter चुनें, 30 सेकंड टाइमर के साथ टेस्ट दें और अपना स्कोर देखें।">
+<meta name="keywords" content="Sabhi Ki Taiyari, CHO MCQ, Nursing Officer MCQ, online test, Hindi MCQ, exam preparation, 30 second timer">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Sabhi Ki Taiyari">
+<meta name="theme-color" content="#172554">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sabhi Ki Taiyari | Online MCQ Test">
+<meta property="og:description" content="CHO, Nursing Officer और अन्य परीक्षाओं की MCQ प्रैक्टिस करें।">
+<meta property="og:locale" content="hi_IN">
+<style>
+:root{--bg:#f3f6fc;--card:#fff;--ink:#172033;--muted:#667085;--blue:#315efb;--line:#e5eaf3;--green:#168653;--red:#c43d4b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Noto Sans Devanagari",sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#172554,#315efb);color:white;padding:24px 18px}
+.wrap{max-width:980px;margin:auto}header h1{margin:0 0 7px;font-size:28px}header p{margin:0;color:#dbe6ff}
+main{max-width:980px;margin:20px auto;padding:0 14px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 5px 18px #14213d0a}
+h2{font-size:19px;margin:0 0 14px}.muted{color:var(--muted);font-size:14px}
+select,input,textarea,button{font:inherit}select,input,textarea{width:100%;padding:12px;border:1px solid #ccd5e4;border-radius:10px;background:white;color:var(--ink);margin:6px 0 12px}
+button{border:0;border-radius:10px;padding:11px 15px;background:var(--blue);color:white;font-weight:700;cursor:pointer}
+button.secondary{background:#edf1ff;color:#2446c7}button.ghost{background:#eef1f6;color:#344054}button:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.stat{background:#f5f7ff;border-radius:12px;padding:13px}.stat b{display:block;font-size:22px;color:#2446c7;margin-bottom:4px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.crumb{font-size:13px;color:var(--muted);margin-bottom:12px}
+.option{display:block;width:100%;text-align:left;background:#f7f9fd;color:var(--ink);border:1px solid var(--line);margin:9px 0;padding:14px;font-weight:500}
+.option.selected{border:2px solid var(--blue);background:#eef2ff}.option.correct{border:2px solid var(--green);background:#edfff5}.option.wrong{border:2px solid var(--red);background:#fff0f1}
+.hide{display:none!important}.pill{display:inline-block;padding:5px 9px;border-radius:30px;background:#edf1ff;color:#2446c7;font-size:12px}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
+label{font-size:13px;font-weight:700}
+@media(max-width:560px){header h1{font-size:23px}.panel{padding:14px}.row>*{min-width:100%}}
+
+.pdfbox{border:2px dashed #9aaee8;background:#f7f9ff;padding:14px;border-radius:12px;margin:14px 0}
+.pdfpreview{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:10px;margin:10px 0}
+.pdfitem{padding:10px;border-bottom:1px solid var(--line)}.pdfitem:last-child{border:0}
+.small{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>🎯 Sabhi Ki Taiyari</h1><p>Topic → Subject → Chapter → MCQ | Practice • Test • Improve</p></div></header>
+<main>
+<section class="panel">
+ <div class="grid">
+  <div class="stat"><b id="topicCount">0</b><span class="muted">Topics</span></div>
+  <div class="stat"><b id="questionCount">0</b><span class="muted">कुल प्रश्न</span></div>
+  <div class="stat"><b id="bestScore">—</b><span class="muted">Best score</span></div>
+ </div>
+</section>
+<section class="panel" id="selector">
+ <h2>अपना टेस्ट चुनें</h2>
+ <div class="row">
+  <div><label>Topic</label><select id="topic"></select></div>
+  <div><label>Subject</label><select id="subject"></select></div>
+  <div><label>Chapter</label><select id="chapter"></select></div>
+ </div>
+ <div class="row">
+  <div><label>प्रश्नों की संख्या</label><select id="limit"><option>5</option><option>10</option><option>20</option><option>50</option><option value="all">सभी प्रश्न</option></select></div>
+  <div><label>हर MCQ का समय</label><input value="30 सेकंड प्रति प्रश्न" disabled></div>
+ </div>
+ <button id="start">टेस्ट शुरू करें</button>
+ <button class="secondary" id="manageBtn">प्रश्न जोड़ें / मैनेज करें</button>
+</section>
+<section class="panel hide" id="quiz">
+ <div class="crumb" id="quizCrumb"></div>
+ <div class="row"><div><span class="pill" id="progress"></span></div><div style="text-align:right"><b id="timer">⏱ —</b></div></div>
+ <h2 id="questionText" style="margin-top:16px"></h2>
+ <div id="options"></div>
+ <p class="muted" id="feedback"></p>
+ <div class="row"><button class="ghost" id="quit">बंद करें</button><button id="next" disabled>अगला प्रश्न →</button></div>
+</section>
+<section class="panel hide" id="result">
+ <h2>टेस्ट पूरा हुआ 🎉</h2><div class="grid">
+ <div class="stat"><b id="score"></b><span class="muted">आपका स्कोर</span></div>
+ <div class="stat"><b id="right"></b><span class="muted">सही उत्तर</span></div>
+ <div class="stat"><b id="wrong"></b><span class="muted">गलत उत्तर</span></div>
+ </div><p id="remark"></p><button id="again">फिर से टेस्ट दें</button> <button class="secondary" id="review">उत्तर देखें</button>
+ <div id="reviewList"></div>
+</section>
+<section class="panel hide" id="manager">
+ <h2>अपना MCQ जोड़ें</h2><p class="muted">नया Topic, Subject, Chapter या प्रश्न जोड़ सकते हैं। आपके जोड़े गए प्रश्न इसी ब्राउज़र में सेव होंगे।</p>
+ <div class="pdfbox">
+  <h3 style="margin:0 0 8px">📄 PDF से MCQ अपलोड करें</h3>
+  <p class="small">ऐसी PDF चुनें जिसमें प्रश्न नंबर, A/B/C/D विकल्प और Answer/Correct Answer दिया हो। PDF का टेक्स्ट पढ़ा जाएगा; स्कैन की हुई फोटो-PDF में OCR की जरूरत हो सकती है।</p>
+  <label>Topic</label><input id="pdfTopic" placeholder="जैसे RRB Nursing Superintendent">
+  <label>Subject</label><input id="pdfSubject" placeholder="जैसे Fundamentals of Nursing">
+  <label>Chapter</label><input id="pdfChapter" placeholder="जैसे Infection Control">
+  <label>PDF फाइल चुनें</label><input id="pdfFile" type="file" accept="application/pdf,.pdf">
+  <button id="readPdf">PDF पढ़ें और MCQ निकालें</button>
+  <p id="pdfStatus" class="small" aria-live="polite"></p>
+  <div id="pdfReview" class="pdfpreview hide"></div>
+  <button id="importPdf" class="hide">सभी सही किए गए MCQ ऐप में Import करें</button>
+ </div>
+ <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+ <label>Topic</label><input id="newTopic" placeholder="जैसे CHO Exam">
+ <label>Subject</label><input id="newSubject" placeholder="जैसे Community Health Nursing">
+ <label>Chapter</label><input id="newChapter" placeholder="जैसे Primary Health Care">
+ <label>प्रश्न</label><textarea id="newQuestion" rows="2" placeholder="अपना प्रश्न लिखें"></textarea>
+ <div class="grid"><div><label>विकल्प A</label><input id="a"></div><div><label>विकल्प B</label><input id="b"></div><div><label>विकल्प C</label><input id="c"></div><div><label>विकल्प D</label><input id="d"></div></div>
+ <label>सही उत्तर</label><select id="answer"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+ <label>Explanation (वैकल्पिक)</label><textarea id="explain" rows="2" placeholder="सही उत्तर का कारण"></textarea>
+ <button id="saveQuestion">प्रश्न सेव करें</button> <button class="ghost" id="closeManager">वापस जाएँ</button>
+ <p class="muted" id="saveMsg"></p>
+</section>
+</main><footer>Sabhi Ki Taiyari • सभी परीक्षाओं की तैयारी, एक ही जगह</footer>
+<script>
+const seed=[
+{topic:"CHO Exam",subject:"Community Health Nursing",chapter:"Primary Health Care",q:"प्राथमिक स्वास्थ्य देखभाल (Primary Health Care) का मुख्य उद्देश्य क्या है?",o:["सभी लोगों तक आवश्यक स्वास्थ्य सेवाएँ पहुँचाना","केवल अस्पताल में इलाज देना","केवल विशेषज्ञ उपचार देना","केवल शहरी क्षेत्रों में सेवा देना"],a:0,e:"Primary Health Care का उद्देश्य सभी लोगों को सुलभ, स्वीकार्य और आवश्यक स्वास्थ्य सेवाएँ उपलब्ध कराना है।"},
+{topic:"CHO Exam",subject:"Community Health Nursing",chapter:"Primary Health Care",q:"भारत में आयुष्मान आरोग्य मंदिर का प्रमुख उद्देश्य क्या है?",o:["केवल ऑपरेशन करना","व्यापक प्राथमिक स्वास्थ्य सेवाएँ देना","केवल मेडिकल कॉलेज चलाना","केवल दवा निर्माण करना"],a:1,e:"आयुष्मान आरोग्य मंदिर में व्यापक प्राथमिक स्वास्थ्य सेवाएँ प्रदान की जाती हैं।"},
+{topic:"CHO Exam",subject:"Maternal Health",chapter:"Antenatal Care",q:"गर्भावस्था में PMSMA के अंतर्गत विशेष ANC सेवाएँ सामान्यतः किस तारीख को दी जाती हैं?",o:["हर महीने की 1 तारीख","हर महीने की 9 तारीख","हर महीने की 15 तारीख","हर महीने की -за तारीख"],a:1,e:"PMSMA के अंतर्गत प्रत्येक महीने की 9 तारीख को निश्चित गुणवत्तापूर्ण ANC सेवाएँ दी जाती हैं।"},
+{topic:"SSC Nursing Officer",subject:"Fundamentals of Nursing",chapter:"Vital Signs",q:"एक वयस्क व्यक्ति की सामान्य आराम की नाड़ी दर सामान्यतः कितनी होती है?",o:["20–40 प्रति मिनट","60–100 प्रति मिनट","110– re प्रति मिनट","140–160 प्रति मिनट"],a:1,e:"वयस्क में आराम की सामान्य नाड़ी दर लगभग 60–100 प्रति मिनट होती है।"},
+{topic:"SSC Nursing Officer",subject:"Medical Surgical Nursing",chapter:"Infection Control",q:"हाथों की स्वच्छता का सबसे महत्वपूर्ण उद्देश्य क्या है?",o:["संक्रमण के प्रसार को रोकना","भूख बढ़ाना","रक्तचाप कम करना","नींद में सुधार करना"],a:0,e:"हाथों की स्वच्छता संक्रमण की रोकथाम का प्रमुख उपाय है।"},
+{topic:"General Knowledge",subject:"Indian Geography",chapter:"Rivers of India",q:"गंगा नदी का उद्गम किस हिमनद से माना जाता है?",o:["सियाचिन हिमनद","गंगोत्री हिमनद","जेमू हिमनद","पिंडारी हिमनद"],a:1,e:"भागीरथी नदी का उद्गम गंगोत्री हिमनद के गोमुख से होता है।"},
+{topic:"General Knowledge",subject:"Indian History",chapter:"Ancient India",q:"मौर्य साम्राज्य के संस्थापक कौन थे?",o:["अशोक","बिंदुसार","चंद्रगुप्त मौर्य","हर्षवर्धन"],a:2,e:"चंद्रगुप्त मौर्य ने मौर्य साम्राज्य की स्थापना की।"},
+{topic:"General Knowledge",subject:"General Science",chapter:"Human Body",q:"मानव शरीर में रक्त को पंप करने वाला अंग कौन-सा है?",o:["फेफड़ा","हृदय","यकृत","गुर्दा"],a:1,e:"हृदय रक्त को पूरे शरीर में पंप करता है।"}
+];
+let data=JSON.parse(localStorage.getItem("quizMasterData")||"null")||seed;
+let current=[],idx=0,answers=[],seconds=30,clock=null,reviewMode=false;
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem("quizMasterData",JSON.stringify(data));}
+function unique(key,filter={}){return [...new Set(data.filter(x=>Object.entries(filter).every(([k,v])=>!v||x[k]===v)).map(x=>x[key]))].sort();}
+function fill(sel,items,placeholder){sel.innerHTML="";let op=document.createElement("option");op.value="";op.textContent=placeholder;sel.append(op);items.forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;sel.append(o)});}
+function refresh(){fill($("topic"),unique("topic"),"Topic चुनें");fill($("subject"),[],"पहले Topic चुनें");fill($("chapter"),[],"पहले Subject चुनें");$("topicCount").textContent=unique("topic").length;$("questionCount").textContent=data.length;$("bestScore").textContent=localStorage.getItem("quizBest")||"—";}
+$("topic").onchange=()=>{fill($("subject"),unique("subject",{topic:$("topic").value}),"Subject चुनें");fill($("chapter"),[],"पहले Subject चुनें")};
+$("subject").onchange=()=>fill($("chapter"),unique("chapter",{topic:$("topic").value,subject:$("subject").value}),"Chapter चुनें");
+function show(id){["selector","quiz","result","manager"].forEach(x=>$(x).classList.toggle("hide",x!==id));}
+function start(){let t=$("topic").value,s=$("subject").value,c=$("chapter").value;if(!t||!s||!c){alert("कृपया Topic, Subject और Chapter चुनें।");return}
+let pool=data.filter(x=>x.topic===t&&x.subject===s&&x.chapter===c);pool.sort(()=>Math.random()-.5);let n=$("limit").value;current=pool.slice(0,n==="all"?pool.length:Number(n));idx=0;answers=[];reviewMode=false;clearInterval(clock);$("quizCrumb").textContent=t+" › "+s+" › "+c;show("quiz");render();}
+function render(){clearInterval(clock);seconds=30;let q=current[idx];$("progress").textContent=`प्रश्न ${idx+1} / ${current.length}`;$("questionText").textContent=q.q;$("options").innerHTML="";$("feedback").textContent="";q.o.forEach((v,i)=>{let b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+i)+". "+v;b.onclick=()=>choose(i);$("options").append(b)});$("next").disabled=true;$("next").textContent=idx===current.length-1?"रिजल्ट देखें":"अगला प्रश्न →";updateQuestionTimer();clock=setInterval(()=>{seconds--;updateQuestionTimer();if(seconds<=0){clearInterval(clock);if(answers[idx]===undefined){answers[idx]=-1;$("feedback").textContent="⏰ समय समाप्त! यह प्रश्न छोड़ दिया गया।";[...$("options").children].forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add("correct")});}setTimeout(()=>advanceQuestion(),700);}},1000);}
+function updateQuestionTimer(){$("timer").textContent="⏱ शेष समय: 00:"+String(Math.max(0,seconds)).padStart(2,"0");}
+function advanceQuestion(){if(idx<current.length-1){idx++;render()}else finish();}
+function choose(i){if(answers[idx]!==undefined)return;clearInterval(clock);answers[idx]=i;let q=current[idx];[...$("options").children].forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add("correct");else if(j===i)b.classList.add("wrong")});$("feedback").textContent=(i===q.a?"✓ सही उत्तर। ":"✗ गलत उत्तर। ")+(q.e||"");$("next").disabled=false;$("timer").textContent="✓ उत्तर दर्ज";}
+$("next").onclick=()=>{if(answers[idx]===undefined)return;advanceQuestion()};
+function finish(){clearInterval(clock);let correct=current.filter((q,i)=>answers[i]===q.a).length;let pct=Math.round(correct/current.length*100);$("score").textContent=pct+"%";$("right").textContent=correct;$("wrong").textContent=current.length-correct;$("remark").textContent=pct>=80?"बहुत बढ़िया! आपका प्रदर्शन शानदार है।":pct>=50?"अच्छा प्रयास! थोड़ी और प्रैक्टिस करें।":"अभ्यास जारी रखें—आप बेहतर कर सकते हैं।";let best=Number(localStorage.getItem("quizBest")||0);if(pct>best)localStorage.setItem("quizBest",pct);$("bestScore").textContent=localStorage.getItem("quizBest")+"%";show("result");}
+$("quit").onclick=()=>{clearInterval(clock);show("selector")};$("again").onclick=()=>show("selector");
+$("review").onclick=()=>{$("reviewList").innerHTML="";current.forEach((q,i)=>{let d=document.createElement("div");d.className="panel";d.innerHTML="<b>"+(i+1)+". "+q.q+"</b><p>आपका उत्तर: "+(q.o[answers[i]]||"नहीं दिया")+"</p><p>सही उत्तर: "+q.o[q.a]+"</p><p class='muted'>"+(q.e||"")+"</p>";$("reviewList").append(d)})};
+$("manageBtn").onclick=()=>show("manager");$("closeManager").onclick=()=>show("selector");
+$("saveQuestion").onclick=()=>{let vals=["a","b","c","d"].map(x=>$(x).value.trim());let fields=["newTopic","newSubject","newChapter","newQuestion"];if(fields.some(x=>!$(x).value.trim())||vals.some(x=>!x)){alert("कृपया सभी जरूरी फ़ील्ड भरें।");return}data.push({topic:$("newTopic").value.trim(),subject:$("newSubject").value.trim(),chapter:$("newChapter").value.trim(),q:$("newQuestion").value.trim(),o:vals,a:Number($("answer").value),e:$("explain").value.trim()});save();refresh();$("saveMsg").textContent="प्रश्न सफलतापूर्वक सेव हो गया।";["newQuestion","a","b","c","d","explain"].forEach(x=>$(x).value="");};
+
+// PDF MCQ import: extracts selectable text with PDF.js, then previews parsed items before saving.
+let pdfQuestions=[];
+function loadPdfJs(){return new Promise((resolve,reject)=>{if(window.pdfjsLib){resolve();return}let sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';sc.onload=()=>{pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';resolve()};sc.onerror=()=>reject(new Error('PDF reader load नहीं हुआ। इंटरनेट चालू करके दोबारा कोशिश करें।'));document.head.append(sc);});}
+function parsePdfQuestions(raw){
+ const lines=raw.replace(/\r/g,'\n').split('\n').map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean);
+ const starts=[]; const qStart=/^(?:Q(?:uestion)?\s*)?\d{1,4}\s*[.)\-:]\s+(.+)/i;
+ lines.forEach((line,i)=>{if(qStart.test(line)) starts.push(i)});
+ if(!starts.length) return [];
+ const out=[];
+ for(let n=0;n<starts.length;n++){
+  const chunk=lines.slice(starts[n],starts[n+1]??lines.length);
+  let q=chunk[0].replace(qStart,'$1').trim(), opts=['','','',''], answer=-1, exp=''; let mode='q';
+  for(let j=1;j<chunk.length;j++){
+   let line=chunk[j];
+   let am=line.match(/^(?:correct\s*)?answer\s*[:.\-]?\s*\(?([A-D1-4])\)?\s*[-.:]?\s*(.*)$/i);
+   if(am){answer=/[1-4]/.test(am[1])?Number(am[1])-1:am[1].toUpperCase().charCodeAt(0)-65; if(am[2]) exp=am[2];mode='after';continue}
+   let em=line.match(/^(?:explanation|solution|व्याख्या)\s*[:.-]?\s*(.*)$/i);
+   if(em){exp=em[1];mode='exp';continue}
+   let om=line.match(/^\(?([A-D])\)?\s*[).:\-]\s*(.*)$/i);
+   if(om){opts[om[1].toUpperCase().charCodeAt(0)-65]=om[2];mode='options';continue}
+   if(mode==='q') q+=' '+line;
+   else if(mode==='options'){let k=opts.findIndex(x=>!x);if(k>=0)opts[k]+=(opts[k]?' ':'')+line;}
+   else if(mode==='exp') exp+=(exp?' ':'')+line;
+  }
+  if(q&&opts.every(Boolean))out.push({q,o:opts,a:answer,e:exp});
+ }
+ return out;
+}
+$('readPdf').onclick=async()=>{
+ const file=$('pdfFile').files[0]; if(!file){$('pdfStatus').textContent='पहले PDF फाइल चुनें।';return}
+ if(!$('pdfTopic').value.trim()||!$('pdfSubject').value.trim()||!$('pdfChapter').value.trim()){$('pdfStatus').textContent='Topic, Subject और Chapter भरें।';return}
+ if(file.size>25*1024*1024){$('pdfStatus').textContent='PDF 25 MB से छोटी चुनें।';return}
+ $('pdfStatus').textContent='PDF पढ़ी जा रही है…';$('pdfReview').classList.add('hide');$('importPdf').classList.add('hide');
+ try{await loadPdfJs();const buf=await file.arrayBuffer();const pdf=await pdfjsLib.getDocument({data:buf}).promise;let textParts=[];
+  for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i);const tc=await page.getTextContent();let row='';let lastY=null;for(const item of tc.items){if(lastY!==null&&Math.abs(item.transform[5]-lastY)>4){textParts.push(row);row=''}row+=(row?' ':'')+item.str;lastY=item.transform[5]}if(row)textParts.push(row)}
+  pdfQuestions=parsePdfQuestions(textParts.join('\n'));if(!pdfQuestions.length){$('pdfStatus').textContent='इस PDF में प्रश्न नहीं पहचाने गए। PDF में selectable text और प्रश्न नंबर (1., 2.), A/B/C/D तथा Answer: B जैसा format होना चाहिए।';return}
+  $('pdfReview').innerHTML='<b>'+pdfQuestions.length+' MCQ मिले। सही उत्तर जाँचें:</b>';
+  pdfQuestions.forEach((q,i)=>{let d=document.createElement('div');d.className='pdfitem';let title=document.createElement('p');title.textContent=(i+1)+'. '+q.q;d.append(title);q.o.forEach((v,j)=>{let p=document.createElement('p');p.className='small';p.textContent=String.fromCharCode(65+j)+'. '+v;d.append(p)});let lab=document.createElement('label');lab.textContent='Correct answer';let sel=document.createElement('select');sel.innerHTML='<option value="-1">उत्तर चुनें</option><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option>';sel.value=String(q.a);sel.onchange=()=>q.a=Number(sel.value);d.append(lab,sel);let ex=document.createElement('textarea');ex.rows=2;ex.placeholder='Explanation (optional)';ex.value=q.e;ex.oninput=()=>q.e=ex.value;d.append(ex);$('pdfReview').append(d)});
+  $('pdfReview').classList.remove('hide');$('importPdf').classList.remove('hide');$('pdfStatus').textContent='कृपया हर प्रश्न का सही उत्तर जाँचें। फिर Import करें।';
+ }catch(err){$('pdfStatus').textContent='PDF पढ़ने में समस्या: '+err.message}
+};
+$('importPdf').onclick=()=>{let missing=pdfQuestions.filter(q=>q.a<0||q.a>3);if(missing.length){$('pdfStatus').textContent=missing.length+' प्रश्नों का सही उत्तर चुनना बाकी है।';return}
+ const meta={topic:$('pdfTopic').value.trim(),subject:$('pdfSubject').value.trim(),chapter:$('pdfChapter').value.trim()};pdfQuestions.forEach(q=>data.push({...meta,...q}));save();refresh();$('pdfStatus').textContent=pdfQuestions.length+' MCQ सफलतापूर्वक ऐप में सेव हो गए।';pdfQuestions=[];$('pdfReview').classList.add('hide');$('importPdf').classList.add('hide');$('pdfFile').value='';};
+
+refresh();
+$("start").onclick=start;
+</script>
+</body></html>
